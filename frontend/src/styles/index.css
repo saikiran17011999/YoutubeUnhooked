@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-yt-black text-yt-text font-roboto antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-yt-lighter rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* YouTube-like button styles */
+  .btn-primary {
+    @apply px-4 py-2 bg-yt-blue text-yt-black font-medium rounded-full
+           hover:bg-blue-400 transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-yt-lighter text-yt-text font-medium rounded-full
+           hover:bg-gray-600 transition-colors duration-200;
+  }
+
+  .btn-icon {
+    @apply p-2 rounded-full hover:bg-yt-lighter transition-colors duration-200;
+  }
+
+  .btn-ghost {
+    @apply px-3 py-1.5 text-sm text-yt-text-secondary hover:text-yt-text
+           hover:bg-yt-lighter rounded-full transition-colors duration-200;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-yt-dark rounded-xl overflow-hidden;
+  }
+
+  .card-hover {
+    @apply hover:bg-yt-darker transition-colors duration-200;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-2 bg-yt-dark border border-yt-lighter rounded-lg
+           text-yt-text placeholder-yt-text-secondary
+           focus:outline-none focus:border-yt-blue transition-colors;
+  }
+
+  .input-search {
+    @apply w-full px-4 py-2 bg-yt-darker border border-yt-lighter rounded-full
+           text-yt-text placeholder-yt-text-secondary
+           focus:outline-none focus:border-yt-blue transition-colors;
+  }
+
+  /* Sidebar styles */
+  .sidebar-item {
+    @apply flex items-center gap-4 px-3 py-2 rounded-lg
+           text-yt-text-secondary hover:text-yt-text hover:bg-yt-lighter
+           transition-colors duration-200 cursor-pointer;
+  }
+
+  .sidebar-item.active {
+    @apply bg-yt-lighter text-yt-text;
+  }
+
+  /* Video card thumbnail */
+  .thumbnail {
+    @apply relative aspect-video bg-yt-darker rounded-xl overflow-hidden;
+  }
+
+  .thumbnail img {
+    @apply w-full h-full object-cover;
+  }
+
+  .thumbnail-duration {
+    @apply absolute bottom-1 right-1 px-1.5 py-0.5
+           bg-black/80 text-white text-xs font-medium rounded;
+  }
+
+  /* Status badge */
+  .badge {
+    @apply px-2 py-0.5 text-xs font-medium rounded-full;
+  }
+
+  .badge-watched {
+    @apply bg-green-500/20 text-green-400;
+  }
+
+  .badge-favorite {
+    @apply bg-red-500/20 text-red-400;
+  }
+
+  .badge-watch-again {
+    @apply bg-yellow-500/20 text-yellow-400;
+  }
+
+  /* Notes panel */
+  .note-card {
+    @apply p-4 bg-yt-darker rounded-lg border border-yt-lighter/50;
+  }
+
+  /* Toggle button */
+  .toggle-btn {
+    @apply flex items-center gap-2 px-3 py-1.5 rounded-full text-sm
+           border border-yt-lighter text-yt-text-secondary
+           hover:bg-yt-lighter transition-colors;
+  }
+
+  .toggle-btn.active {
+    @apply bg-yt-lighter text-yt-text border-transparent;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-ellipsis-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .text-ellipsis-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
