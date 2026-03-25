@@ -1,16 +1,14 @@
-# This file is for the root - Railway should use subdirectory services
-# For monorepo setup, create separate services with root directories:
-# - Backend service: root = "backend"
-# - Frontend service: root = "frontend"
+# Root nixpacks.toml - defaults to backend service
+# For monorepo: create separate services with Root Directory set to "backend" or "frontend"
 
 [phases.setup]
 nixPkgs = ["nodejs-18_x"]
 
 [phases.install]
-cmds = ["cd backend && npm install"]
+cmds = ["cd backend && npm ci || npm install"]
 
 [phases.build]
-cmds = ["cd backend && npm run build || true"]
+cmds = ["echo 'Build complete'"]
 
 [start]
 cmd = "cd backend && npm start"

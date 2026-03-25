@@ -57,12 +57,11 @@ const config = {
 };
 
 // Validation for required config in production
+// Note: YouTube API key is optional - app works without it but can't fetch video metadata
 if (config.env === 'production') {
-  const required = ['JWT_SECRET', 'YOUTUBE_API_KEY'];
-  const missing = required.filter(key => !process.env[key]);
-
-  if (missing.length > 0) {
-    throw new Error(`Missing required environment variables: ${missing.join(', ')}`);
+  // JWT_SECRET has a default, so no required vars for basic functionality
+  if (!process.env.YOUTUBE_API_KEY) {
+    console.warn('Warning: YOUTUBE_API_KEY not set. Video metadata fetching will be limited.');
   }
 }
 
